@@ -6,7 +6,8 @@ Description: header file for database
 #include <stdio.h>
 #include <stdint.h>
 
-// TODO: implement my own strcpy() 
+// TODO: implement my own strcpy()
+// TODO: implement my own memset() 
 #include <string.h>
 
 typedef uint64_t INDEX; // must be present in each observation, and unique
@@ -42,15 +43,6 @@ struct test_table
     REAL avg_score;
 };
 
-struct candidate_master
-{
-    INDEX index; // NOTE: maybe this index will match with the index of the array that is the table itself
-    CHAR32 name;
-    PARTY party_code; // for DEM, REP, or IND
-    REAL total_receipts;
-    STATE state;
-
-};
 
 // TODO: start with this function, which prints a single row of a struct
 void print_row(candidate_master row_index)// NEED TO CHECK IF THESE PARAMETERS MAKE SENSE

@@ -6,6 +6,30 @@ Description: Some kind of database thing
 
 #include "header.h"
 
+struct candidate_master
+{
+    INDEX index; // NOTE: maybe this index will match with the index of the array that is the table itself
+    CHAR32 name;
+    PARTY party_code; // for DEM, REP, or IND
+    REAL total_receipts;
+    STATE state;
+
+};
+
+// initialize candidate master function
+// initializes to 0s and ' ' where relevant
+// TODO: allow specific values to be passed in
+void initialize_candidate(struct candidate_master *cand)
+{
+    static INDEX cand_index = 0;
+    cand_index++;
+    cand->index = cand_index;
+    memset(cand->name, ' ', sizeof(cand->name));
+    memset(cand->party_code, ' ', sizeof(cand->party_code)); 
+    cand->total_receipts = 0.0f;
+    memset(cand->state, ' ', sizeof(cand->state));
+}
+
 int main(void)
 {
     //check to see if size of double is what we think
